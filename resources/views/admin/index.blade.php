@@ -14,7 +14,7 @@
                     <ul class="nav nav-stacked collapse in" id="userMenu">
                         <li class="active"> <a href="/"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
                         <li><a href="/lokasi"><i class="glyphicon glyphicon-map-marker"></i> Lokasi</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-globe"></i> Peta</a></li>
+                        <li><a href="/peta"><i class="glyphicon glyphicon-globe"></i> Peta</a></li>
                     </ul>
                 </li>
 
@@ -38,7 +38,7 @@
         </div>
 
         <div class="col-sm-10">            
-            <div class="row">
+            <div class="row" id="map-canvas">
                 @yield('content2')
             </div>
         </div>
