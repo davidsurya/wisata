@@ -11,12 +11,16 @@
 <!-- peta -->
 <script>
 var map;
+var marker;
+var infoWindow;
+var infoWindow2;
+
 function initMap() {
 	map = new google.maps.Map(document.getElementById('map'), {
 		center: {lat: -34.397, lng: 150.644},
 		zoom: 8
 	});
-	var infoWindow = new google.maps.InfoWindow({map: map});
+	infoWindow = new google.maps.InfoWindow({map: map});
 
   	// Try HTML5 geolocation.
   	if (navigator.geolocation) {
@@ -27,7 +31,7 @@ function initMap() {
 	  		};
 
 	  		infoWindow.setPosition(pos);
-	  		infoWindow.setContent('Location found.');
+	  		infoWindow.setContent('Lokasi Anda.');
 	  		map.setCenter(pos);
   		}, function() {
   			handleLocationError(true, infoWindow, map.getCenter());
@@ -36,6 +40,27 @@ function initMap() {
 	    // Browser doesn't support Geolocation
 	    handleLocationError(false, infoWindow, map.getCenter());
 	}
+
+	// Listener untuk menampilkan lat, lng yang diklik
+	google.maps.event.addListener(map, "click", function (e) {
+		placeMarker(e.latLng); //memanggil fungsi placeMarker
+	});
+}
+
+// Fungsi untuk menampilkan lat, lng pada peta yang diklik
+function placeMarker(location) {
+	if (marker) {
+		marker.setPosition(location);
+	} else {
+		marker = new google.maps.Marker({
+			position: location,
+			map: map
+		});
+	}
+	infoWindow2 = new google.maps.InfoWindow();
+	var result = "Latitude : "+location.lat()+"<br>Longitude : "+location.lng();
+	infoWindow2.setContent(result);
+	infoWindow2.open(map, marker);
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
