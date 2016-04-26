@@ -10,7 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::auth();
+Route::get('/', 'UserController@index');
+Route::post('register', 'UserController@store');
+Route::resource('lokasi', 'LocationController');
+Route::get('api/v1/lokasi/', 'LocationController@allapi');
+Route::get('api/v1/lokasi/{lokasi}', 'LocationController@api');
