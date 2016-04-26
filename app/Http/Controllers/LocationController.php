@@ -57,6 +57,11 @@ class LocationController extends Controller
     	return view('admin.location', ['locations' => $location]);    	
     }
 
+    public function map()
+    {
+        return view('admin.map');
+    }
+
     public function store(LocationRequest $request)
     {
         $location = new Location;
@@ -64,6 +69,13 @@ class LocationController extends Controller
         \Session::flash('flash_message', 'Data lokasi telah ditambahkan');
 
         return redirect('/lokasi');
+    }
+
+    public function show($id)
+    {
+        $location = Location::findOrFail($id);
+
+        return $location;
     }
 
     public function update($id, Request $request)
