@@ -41,7 +41,7 @@
 						<td class="col-md-2">{{ $location->facilities }}</td>
 						<td class="col-md-2">
 							{!! Form::open(['url' => '/lokasi/'.$location->id, 'method' => 'DELETE']) !!}
-							<a href="/lokasi/{{ $location->id }}" class="btn btn-success"><i class="glyphicon glyphicon-eye-open"></i></a>
+							<a href="/lokasi/{{ $location->id }}" class="btn btn-success"><i class="glyphicon glyphicon-camera"></i></a>
 							<a href="/lokasi/{{ $location->id }}/edit" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
 							{!! Form::button('<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>', ['class'=>'btn btn-danger', 'type'=>'submit']) !!}
 							{!! Form::close() !!}
