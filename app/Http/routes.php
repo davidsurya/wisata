@@ -14,5 +14,6 @@ Route::auth();
 Route::get('/', 'UserController@index');
 Route::post('register', 'UserController@store');
 Route::resource('lokasi', 'LocationController');
+Route::get('peta', 'LocationController@map');
 Route::get('api/v1/lokasi/', 'LocationController@allapi');
 Route::get('api/v1/lokasi/{lokasi}', 'LocationController@api');
