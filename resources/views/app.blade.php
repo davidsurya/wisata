@@ -9,6 +9,20 @@
 	{{-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> --}}
 	<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 	<link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+	<style>
+    	html, body {
+        	height: 100%;
+        	margin: 0;
+        	padding: 0;
+      	}
+      	#map-canvas {
+      		width: 100%;
+        	height: 500px;
+      	}
+      	#map{
+      		height: 100%;
+      	}
+    </style>
 	<title>Wisata</title>
 </head>
 <body>
@@ -50,5 +64,7 @@
 	<script src="{{ asset('js/jquery.min.js') }}"></script>
 	<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 	<script src="{{ asset('js/scripts.js') }}"></script>
+
+	@yield('script')
 </body>
 </html>
